@@ -1,0 +1,7 @@
+{
+  "name": "cocktail-recipe-mobile-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
