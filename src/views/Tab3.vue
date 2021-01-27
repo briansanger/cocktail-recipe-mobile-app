@@ -27,8 +27,8 @@
 <script lang="ts">
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonSearchbar, IonSpinner, IonLabel } from "@ionic/vue";
 import { reactive } from "vue";
-import axios from "axios";
 
+import {getSearchResults} from "@/services/CocktailApi";
 import DrinkCard from "@/components/DrinkCard.vue";
 import IDrinkDetails from "@/interfaces/IDrinkDetails";
 
@@ -44,9 +44,9 @@ export default {
       state.loading = true;
       if (searchTerm) {
         state.searchResults = [];
-        const res = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchTerm}`);
-        if (res.data?.drinks) {
-          state.searchResults = res.data?.drinks;
+        const data = await getSearchResults(searchTerm);
+        if (data?.drinks) {
+          state.searchResults = data?.drinks;
         }
       }
       state.loading = false;

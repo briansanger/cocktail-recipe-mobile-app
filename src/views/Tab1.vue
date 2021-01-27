@@ -21,9 +21,11 @@
 
 <script lang="ts">
 import { reactive } from "vue";
-import axios from "axios";
-import DrinkCard from "@/components/DrinkCard.vue";
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonSpinner, IonRefresher, IonRefresherContent } from "@ionic/vue";
+
+import {getRandomDrink} from "@/services/CocktailApi";
+import DrinkCard from "@/components/DrinkCard.vue";
+
 export default {
   name: "Tab1",
   components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonRefresher, IonRefresherContent, IonSpinner, DrinkCard },
@@ -36,9 +38,9 @@ export default {
       if (displayLoaderPage) {
         state.loading = true;
       }
-      const res = await axios.get("https://www.thecocktaildb.com/api/json/v1/1/random.php");
-      if (res.data) {
-        state.randomCocktail = res.data?.drinks[0];
+      const data = await getRandomDrink();
+      if (data) {
+        state.randomCocktail = data?.drinks[0];
       }
       if (displayLoaderPage) {
         state.loading = false;

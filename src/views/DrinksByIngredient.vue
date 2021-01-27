@@ -32,13 +32,9 @@
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton, IonList, IonItem, IonLabel, IonAvatar, IonSpinner } from "@ionic/vue";
 import { reactive } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import axios from "axios";
 
-interface Drink {
-  strDrink: string;
-  strDrinkThumb: string;
-  idDrink: string;
-}
+import { getDrinksByIngredients } from "@/services/CocktailApi";
+import IDrink from "../interfaces/IDrink";
 
 export default {
   name: "DrinksByIngredient",
@@ -48,14 +44,14 @@ export default {
     const route = useRoute();
     const ingredient = route.params.ingredient as string;
     const state = reactive({
-      lstDrinks: [] as Drink[],
+      lstDrinks: [] as IDrink[],
       loading: false
     });
     const fetchDrinksByIngredients = async (ingredient: string) => {
       state.loading = true;
-      const res = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${encodeURI(ingredient)}`);
-      if (res.data) {
-        state.lstDrinks = res.data?.drinks;
+      const data = await getDrinksByIngredients(ingredient);
+      if (data) {
+        state.lstDrinks = data?.drinks;
       }
       state.loading = false;
     };

@@ -25,8 +25,9 @@ import { reactive } from "vue";
 import { useRoute } from "vue-router";
 import axios from "axios";
 
+import { getDrinkById } from "@/services/CocktailApi";
 import DrinkCard from "@/components/DrinkCard.vue";
-import IDrinkDetails from "../interfaces/IDrinkDetails";
+import IDrinkDetails from "@/interfaces/IDrinkDetails";
 
 export default {
   name: "Drink",
@@ -40,9 +41,9 @@ export default {
     });
     const fetchDrinkById = async (drinkId: string) => {
       state.loading = true;
-      const res = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkId}`);
-      if (res.data) {
-        state.drink = res.data?.drinks[0];
+      const data = await getDrinkById(drinkId);
+      if (data) {
+        state.drink = data?.drinks[0];
       }
       state.loading = false;
     };

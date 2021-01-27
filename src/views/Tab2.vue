@@ -29,7 +29,9 @@
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonAvatar, IonLabel, IonSpinner } from "@ionic/vue";
 import { reactive } from "vue";
 import { useRouter } from "vue-router";
-import axios from "axios";
+
+import {getIngredients} from "@/services/CocktailApi";
+
 interface Ingredient {
   strIngredient1: string;
 }
@@ -44,9 +46,9 @@ export default {
     });
     const fetchIngredients = async () => {
       state.loading = true;
-      const res = await axios.get("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list");
-      if (res.data) {
-        state.lstIngredients = res.data?.drinks;
+      const data = await getIngredients();
+      if (data) {
+        state.lstIngredients = data?.drinks;
         state.lstIngredients.sort(function(a, b) {
           return a.strIngredient1.localeCompare(b.strIngredient1);
         });
