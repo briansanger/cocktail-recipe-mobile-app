@@ -24,6 +24,7 @@ import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBa
 import { reactive } from "vue";
 import { useRoute } from "vue-router";
 import axios from "axios";
+
 import DrinkCard from "@/components/DrinkCard.vue";
 import IDrinkDetails from "../interfaces/IDrinkDetails";
 

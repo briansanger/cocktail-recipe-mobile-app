@@ -26,10 +26,12 @@
 
 <script lang="ts">
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonSearchbar, IonSpinner, IonLabel } from "@ionic/vue";
-import DrinkCard from "@/components/DrinkCard.vue";
-import IDrinkDetails from "../interfaces/IDrinkDetails";
 import { reactive } from "vue";
 import axios from "axios";
+
+import DrinkCard from "@/components/DrinkCard.vue";
+import IDrinkDetails from "@/interfaces/IDrinkDetails";
+
 export default {
   name: "Tab3",
   components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonSearchbar, IonSpinner, IonLabel, DrinkCard },
