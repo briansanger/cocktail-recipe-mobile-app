@@ -46,20 +46,6 @@ async function getRandomDrink() {
     })
 }
 
-async function getIngredients() {
-  return axios
-  .get(baseUrl + `/${respFormat}/${version}/${apiKey}/list.php`, {
-    params: {
-      i: "list"
-    }
-  })    .then(response => {
-      return response.data;
-    })
-    .catch(error => {
-      console.log(error);
-    })
-}
-
 async function getSearchResults(searchTerm: string) {
   return axios
     .get(baseUrl + `/${respFormat}/${version}/${apiKey}/search.php`, {
@@ -75,4 +61,33 @@ async function getSearchResults(searchTerm: string) {
     })
 }
 
-export { getDrinksByIngredients, getDrinkById, getRandomDrink, getIngredients, getSearchResults };
+async function getListOf(listParam: string) {
+  return axios
+    .get(baseUrl + `/${respFormat}/${version}/${apiKey}/list.php?${listParam}`)
+    .then(response => {
+      return response.data;
+    })
+    .catch(error => {
+      console.log(error);
+    })
+}
+
+async function getIngredients() {
+  return await getListOf("i=list");
+}
+
+async function getCategories() {
+  return await getListOf("c=list");
+}
+
+async function getGlassTypes() {
+  return await getListOf("g=list");
+}
+
+async function getIsAlcoholic() {
+  return await getListOf("a=list");
+}
+
+
+
+export { getDrinksByIngredients, getDrinkById, getRandomDrink, getIngredients, getSearchResults, getCategories, getGlassTypes, getIsAlcoholic };
