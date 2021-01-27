@@ -6,3 +6,9 @@ https://medium.com/javascript-in-plain-english/cocktail-recipe-mobile-app-with-i
 
 #Serve
 ionic serve
+
+#Ionicons
+https://ionicons.com/
+
+#Capacitor
+https://capacitorjs.com/
