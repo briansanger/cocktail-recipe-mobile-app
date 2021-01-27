@@ -31,17 +31,15 @@ import { reactive } from "vue";
 import { useRouter } from "vue-router";
 
 import {getIngredients} from "@/services/CocktailApi";
+import IIngredient from "@/interfaces/IIngredient";
 
-interface Ingredient {
-  strIngredient1: string;
-}
 export default {
-  name: "Tab2",
+  name: "ByIngredient",
   components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonList, IonItem, IonAvatar, IonLabel, IonSpinner },
   setup() {
     const router = useRouter();
     const state = reactive({
-      lstIngredients: [] as Ingredient[],
+      lstIngredients: [] as IIngredient[],
       loading: false
     });
     const fetchIngredients = async () => {

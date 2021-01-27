@@ -27,7 +27,7 @@ import {getRandomDrink} from "@/services/CocktailApi";
 import DrinkCard from "@/components/DrinkCard.vue";
 
 export default {
-  name: "Tab1",
+  name: "RandomDrink",
   components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonRefresher, IonRefresherContent, IonSpinner, DrinkCard },
   setup() {
     const state = reactive({

@@ -34,7 +34,7 @@ import { reactive } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
 import { getDrinksByIngredients } from "@/services/CocktailApi";
-import IDrink from "../interfaces/IDrink";
+import IDrink from "@/interfaces/IDrink";
 
 export default {
   name: "DrinksByIngredient",

@@ -2,17 +2,17 @@
   <ion-page>
     <ion-tabs>
       <ion-tab-bar slot="bottom">
-        <ion-tab-button tab="tab1" href="/tabs/tab1">
+        <ion-tab-button tab="random-drink" href="/tabs/random-drink">
           <ion-icon :icon="shuffle" />
           <ion-label>Random</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="tab2" href="/tabs/tab2">
+        <ion-tab-button tab="by-ingredient" href="/tabs/by-ingredient">
           <ion-icon :icon="wine" />
           <ion-label>By Ingredient</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="tab3" href="/tabs/tab3">
+        <ion-tab-button tab="search" href="/tabs/search">
           <ion-icon :icon="search" />
           <ion-label>Search</ion-label>
         </ion-tab-button>

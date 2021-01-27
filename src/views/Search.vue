@@ -33,7 +33,7 @@ import DrinkCard from "@/components/DrinkCard.vue";
 import IDrinkDetails from "@/interfaces/IDrinkDetails";
 
 export default {
-  name: "Tab3",
+  name: "Search",
   components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonSearchbar, IonSpinner, IonLabel, DrinkCard },
   setup() {
     const state = reactive({
