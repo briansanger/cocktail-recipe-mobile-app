@@ -29,7 +29,7 @@ import IDrinkDetails from "../interfaces/IDrinkDetails";
 
 export default {
   name: "Drink",
-  components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButtons, IonBackButton, DrinkCard, IonSpinner },
+  components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButtons, IonBackButton, IonSpinner, DrinkCard },
   setup() {
     const route = useRoute();
     const drinkId = route.params.id as string;
