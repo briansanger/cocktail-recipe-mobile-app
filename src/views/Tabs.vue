@@ -9,12 +9,12 @@
 
         <ion-tab-button tab="tab2" href="/tabs/tab2">
           <ion-icon :icon="wine" />
-          <ion-label>Tab 2</ion-label>
+          <ion-label>By Ingredient</ion-label>
         </ion-tab-button>
 
         <ion-tab-button tab="tab3" href="/tabs/tab3">
-          <ion-icon :icon="square" />
-          <ion-label>Tab 3</ion-label>
+          <ion-icon :icon="search" />
+          <ion-label>Search</ion-label>
         </ion-tab-button>
       </ion-tab-bar>
     </ion-tabs>
@@ -23,7 +23,7 @@
 
 <script lang="ts">
 import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage } from "@ionic/vue";
-import { ellipse, square, shuffle, wine } from "ionicons/icons";
+import { ellipse, square, shuffle, wine, search } from "ionicons/icons";
 
 export default {
   name: "Tabs",
@@ -33,7 +33,8 @@ export default {
       ellipse,
       square,
       shuffle,
-      wine
+      wine,
+      search
     };
   }
 };
