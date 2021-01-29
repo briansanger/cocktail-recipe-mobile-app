@@ -11,7 +11,7 @@
       </div>
     </ion-content>
     <ion-content v-else :fullscreen="true">
-      <ion-refresher slot="fixed" @ionRefresh="doRefresh">
+      <ion-refresher slot="fixed" @ionRefresh="doRefresh($event)">
         <ion-refresher-content></ion-refresher-content>
       </ion-refresher>
       <DrinkCard :drink="state.randomCocktail"></DrinkCard>
